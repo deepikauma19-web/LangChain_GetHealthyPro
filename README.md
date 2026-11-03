@@ -19,10 +19,18 @@ OPENAI_API_KEY=your-key
 Then:
 
 ```bash
-python breakfast.py                              # the 5 ideas
-python breakfast.py eggs, bread, tomato, onion   # a recipe from your ingredients + healthy options
-python breakfast.py --raw                        # first shows the full AIMessage object
+python breakfast.py          # asks for your ingredients
+python breakfast.py --raw    # also shows the full AIMessage object first
 ```
+
+The script asks:
+
+```
+Enter your ingredients separated by commas (or press Enter for 5 healthy breakfast ideas):
+```
+
+- Type ingredients (e.g. `oats, banana, milk`) to get a recipe with healthy options.
+- Press Enter with nothing to get 5 healthy breakfast ideas.
 
 ## Notes
 

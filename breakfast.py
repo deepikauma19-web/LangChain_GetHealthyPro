@@ -2,9 +2,11 @@
 breakfast.py
 
 Usage:
-    python breakfast.py                         # prints 5 healthy breakfast ideas
-    python breakfast.py oats, banana, milk      # recipe from your ingredients + healthy options
-    python breakfast.py --raw ...               # also prints the full message object first
+    python breakfast.py          # asks for your ingredients
+    python breakfast.py --raw    # also prints the full message object first
+
+Type ingredients (e.g. oats, banana, milk) to get a recipe with healthy options,
+or press Enter with nothing to get 5 healthy breakfast ideas.
 
 The API key is read from OPENAI_API_KEY in the .env file.
 """
@@ -58,8 +60,12 @@ def main() -> None:
     if not os.getenv("OPENAI_API_KEY"):
         sys.exit("OPENAI_API_KEY is not set. Add OPENAI_API_KEY=your-key to the .env file")
 
-    args = [a for a in sys.argv[1:] if a != "--raw"]
-    ingredients = " ".join(args).strip()
+    # Ask the user for their ingredients; pressing Enter with nothing gives 5 ideas
+    ingredients = input(
+        "Enter your ingredients separated by commas "
+        "(or press Enter for 5 healthy breakfast ideas): "
+    ).strip()
+    print()
 
     # temperature=0 makes the model pick its most likely answer each time,
     # so repeated runs give (nearly) the same output.
