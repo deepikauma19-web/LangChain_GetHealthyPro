@@ -1,4 +1,4 @@
-# Week 2 Day 5: LangChain Breakfast
+# LangChain: Breakfast Idea - Healthy Options
 
 Asks `gpt-4o-mini` (through LangChain's `ChatOpenAI`) for 5 healthy breakfast ideas and prints only the text of the reply.
 
@@ -19,8 +19,9 @@ OPENAI_API_KEY=your-key
 Then:
 
 ```bash
-python breakfast.py             # the 5 ideas
-python breakfast.py --raw       # first shows the full AIMessage object
+python breakfast.py                              # the 5 ideas
+python breakfast.py eggs, bread, tomato, onion   # a recipe from your ingredients + healthy options
+python breakfast.py --raw                        # first shows the full AIMessage object
 ```
 
 ## Notes
