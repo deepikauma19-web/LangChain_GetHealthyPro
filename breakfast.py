@@ -5,7 +5,7 @@ Usage:
     python breakfast.py          # asks for your ingredients
     python breakfast.py --raw    # also prints the full message object first
 
-Type ingredients (e.g. oats, banana, milk) to get a recipe with healthy options,
+Type ingredients (e.g. oats, banana, milk) to get at least 3 healthy recipes, each with healthy options,
 or press Enter with nothing to get 5 healthy breakfast ideas.
 
 The API key is read from OPENAI_API_KEY in the .env file.
@@ -41,18 +41,21 @@ def ideas_prompt() -> str:
 def recipe_prompt(ingredients: str) -> str:
     return (
         f"I have these ingredients: {ingredients}.\n"
-        "Suggest one breakfast recipe that uses them. You may add common pantry "
-        "items (salt, spices, oil, water), and list any other extra item as optional.\n"
-        f"Then suggest healthy options for it. {HEALTHY}\n"
-        "Format rules, use exactly these sections and nothing else:\n"
-        "Recipe: <dish name>\n"
+        "Suggest at least 3 different healthy breakfast recipes that use them. "
+        f"{HEALTHY}\n"
+        "Each recipe must be a different dish, not a variation of another. "
+        "You may add common pantry items (salt, spices, oil, water), and list "
+        "any other extra item as optional.\n"
+        "Format rules, repeat these sections for every recipe and add nothing else:\n"
+        "Recipe <number>: <dish name>\n"
         "Ingredients:\n"
         "- <item with quantity>\n"
         "Steps:\n"
         "1. <step>\n"
         "Healthy options:\n"
         "- <swap or addition that makes it healthier, and why in a few words>\n"
-        "Give 3 to 5 healthy options. No introduction, no closing sentence."
+        "Give 2 to 3 healthy options per recipe. Put a blank line between recipes. "
+        "No introduction, no closing sentence."
     )
 
 

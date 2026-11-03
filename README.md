@@ -29,7 +29,7 @@ The script asks:
 Enter your ingredients separated by commas (or press Enter for 5 healthy breakfast ideas):
 ```
 
-- Type ingredients (e.g. `oats, banana, milk`) to get a recipe with healthy options.
+- Type ingredients (e.g. `oats, banana, milk`) to get at least 3 healthy recipes, each with healthy options.
 - Press Enter with nothing to get 5 healthy breakfast ideas.
 
 ## Notes
